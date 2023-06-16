@@ -40,8 +40,6 @@ def get_string(img, method):
     img = apply_threshold(img, method)
     # Save the filtered image in the output directory
 
-    cv2.imshow('changed',img)
-    cv2.waitKey(0)
     # Recognize text with tesseract for python
     result = pytesseract.image_to_string(img, lang="eng")
     return result
@@ -66,8 +64,7 @@ if project =="Number plate detection and OCR":
             crop = imag[475:550,505:766 ]
             text = get_string(crop,18)
             st.write(text)
-            cv2.imshow('abc',cv2.cvtColor(crop, cv2.COLOR_BGR2RGB))
-            cv2.waitKey(0)
+
             # Now do something with the image! For example, let's display it:
             st.image(image, channels="RGB")
 
